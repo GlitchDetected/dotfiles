@@ -1,2 +1,1 @@
-PROMPT='hello%# '
-
+PROMPT='hello!#'
