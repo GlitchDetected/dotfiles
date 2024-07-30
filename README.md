@@ -26,6 +26,8 @@ git clone https://github.com/cosmicglitch1/dotfiles.git ~/.dotfiles
 
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.config ~/.config
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
 
@@ -44,6 +46,8 @@ brew bundle --file ~/.dotfiles/Brewfile
 cd ~/.dotfiles && brew bundle
 ```
 
+5. Set iTerm2 Theme
+Go to iTerm2>Preferences>Profiles>Colors Then Import the cosmic.itermcolors file
 
 ## TODO List
 
