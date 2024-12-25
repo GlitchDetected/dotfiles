@@ -44,6 +44,9 @@ brew bundle --file ~/.dotfiles/Brewfile
 
 # or move to the directory first.
 cd ~/.dotfiles && brew bundle
+
+#uninstall all dependencies
+brew list | xargs brew uninstall
 ```
 
 5. Set iTerm2 Theme
