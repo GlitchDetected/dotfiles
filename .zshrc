@@ -3,5 +3,4 @@ PROMPT='%F{cyan}CosmicGlitch1:%f %F{yellow}📁 %~%f
 
 # eval "$(starship init zsh)"
 
-# enable neofetch later!
 # neofetch
