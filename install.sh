@@ -12,5 +12,8 @@ ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+#uninstall
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+
 #Install important dependencies with Homebrew
 brew bundle --file ~/.dotfiles/Brewfile
