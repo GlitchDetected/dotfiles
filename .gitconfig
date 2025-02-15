@@ -38,9 +38,9 @@
 
 [hub]
   protocol = https
-[github]
-	user = glitchdetected
-  email = 
+[user]
+	name = glitchdetected
+  email = braveraptor99@gmail.com
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
