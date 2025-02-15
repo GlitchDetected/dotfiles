@@ -1,4 +1,4 @@
 [general]
 import = [
-    "~/.config/alacritty/ubuntu.toml"
+    "~/.config/alacritty/gruvbox.toml"
 ]
