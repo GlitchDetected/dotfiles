@@ -1,65 +1,74 @@
-## Steps to bootstrap/setup your brand new Mac
+# GlitchDetected Dotfiles
 
-1. Install Apple's Command Line Tools, which will later be important for installing Homebrew.
+![Screenshot of nvim](./static/snapshot.png)
+###### _Filed away in my `$HOME`_
 
+## Installing
+
+Make sure to have Apple's Command Line Tools install if you are on MacOS:
 ```zsh
 xcode-select --install
 ```
 
-
-2. Clone repo into new hidden directory which is your Home directory! (You can use SSH or HTTPS I would do HTTPS since its easier)
-
+Paste this command into your terminal:
 ```zsh
-# Use SSH
-git clone git@github.com:cosmicglitch1/dotfiles.git ~/.dotfiles
-
-# or use HTTPS and switch remotes later.
-git clone https://github.com/cosmicglitch1/dotfiles.git ~/.dotfiles
+git clone https://github.com/glitchdetected1/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && source bootstrap.sh
 ```
 
-
-3. Create symlinks in the Home directory to the real files in the repo.
-
+To Update, `cd` into `~/.dotfiles` and run this:
 ```zsh
-# There are better and less manual ways to do this;
-# investigate install scripts and bootstrapping tools.
-
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/.config ~/.config
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+source bootstrap.sh
 ```
 
-
-4. Install Homebrew, followed by the software listed in the Brewfile.
-
+Adding `~/.extra`:
 ```zsh
-# These could also be in an install script.
+# Git credentials
+# Not in the repository, to prevent people from accidentally committing under my name/email
+GIT_AUTHOR_NAME="some one"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="random@email.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+```
+Run `source .extras`
+`~/.extra` is a file with very sensitive information so it can not be in this repository. You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository
+Use `git config --list` to list gitconfig info
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+### My prefered MacOS defaults
 
-# Then pass in the Brewfile location
-brew bundle --file ~/.dotfiles/Brewfile
+When setting up a new Mac, you may want to set some useful MacOS defaults:
 
-# or move to the directory first.
-cd ~/.dotfiles && brew bundle
-
-#uninstall all dependencies
-brew list | xargs brew uninstall
+```bash
+./.macos
 ```
 
-5. Set iTerm2 Theme
-Go to iTerm2>Preferences>Profiles>Colors Then Import the cosmic.itermcolors file
+### Install Homebrew formulae
 
-## TODO List
+When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (If you are using `Homebrew`):
 
-- Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
-- Organize these growing steps into multiple script files.
-- Automate symlinking and run script files with a bootstrapping tool like [Dotbot](https://github.com/anishathalye/dotbot).
-- Revisit the list in [`.zshrc`](.zshrc) to customize the shell.
-- Make a checklist of steps to decommission your computer before wiping your hard drive.
-- Create a [bootable USB installer for macOS](https://support.apple.com/en-us/HT201372).
-- Integrate other cloud services into your Dotfiles process (Discord, Google Drive, etc.).
-- Find inspiration and examples in other Dotfiles repositories at [dotfiles.github.io](https://dotfiles.github.io/).
-)!
+```bash
+./brew.sh
+```
+If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
+
+
+Additionally, if you have `iTerm2` you can set the theme by:
+`iTerm2>Preferences>Profiles>Colors` 
+Then import the `init/space.itermcolors` file (`~/init` contains terminal themes)
+
+## Feedback
+Send some feedback, suggestions, stuff like that here
+[welcome](https://github.com/glitchdetected1/dotfiles/issues)!
+
+## Author
+
+| <img src="static/glitchdetected.png" alt="Logo" width="50" height="50">
+|---|
+| [GlitchDetected](https://www.youtube.com/watch?v=dQw4w9WgXcQ) |
+
+## Huge thanks to these people:
+
+* [mathiasbynens](https://github.com/mathiasbynens) and his [dotfiles](https://github.com/mathiasbynens/dotfiles)
+* [craftzdog](https://github.com/craftzdog) and his [dotfiles and nvim configurations](https://github.com/craftzdog/dotfiles-public)
+* [morhetz](https://github.com/morhetz) for [gruvbox](https://github.com/morhetz/gruvbox)
