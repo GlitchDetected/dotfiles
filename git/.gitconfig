@@ -36,9 +36,6 @@
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
-  # Show the user email for the current repository.
-	whoami = config user.email
-
 [hub]
   protocol = https
 [diff]
@@ -58,3 +55,6 @@
   root = ~/.ghq
 [http]
 	postBuffer = 157286400
+[user]
+	name = glitchdetected
+	email = braveraptor99@gmail.com

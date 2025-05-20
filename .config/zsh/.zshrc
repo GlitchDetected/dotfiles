@@ -5,6 +5,19 @@ PROMPT='%F{cyan}GlitchDetected:%f %F{yellow}📁 %~%f
 
 neofetch
 
+source ~/.extras
+
+# override vim to open nvim when executed
+alias vim=nvim
+
+# git shortcuts
+alias gap="git add -p"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gpu="git pull"
+alias gck="git checkout"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

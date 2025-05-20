@@ -27,13 +27,18 @@ fi;
 unset doIt;
 
 # Create Symlinks
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.config/zsh/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/git/.gitignore ~/.gitignore
+ln -s ~/.dotfiles/git/.gitattributes ~/.gitattributes
 ln -s ~/.dotfiles/.config ~/.config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
+ln -s ~/.dotfiles/.vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim ~/.vim
 ln -s ~/.dotfiles/.extras ~/.extras
+ln -s ~/.dotfiles/.config/bash/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/.config/bash/.bash_prompt ~/.bash_prompt
+ln -s ~/.dotfiles/.config/bash/.bash_profile ~/.bash_profile
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
