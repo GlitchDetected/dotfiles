@@ -3,14 +3,18 @@
 ![Screenshot of nvim](./static/snapshot.png)
 ###### _Filed away in my `$HOME`_
 
-## Installing
+## 🚀 Installing
 
-Make sure to have Apple's Command Line Tools install if you are on MacOS:
+### Prerequisites
+
+- A [Nerd Font](https://www.nerdfonts.com/) installed and enabled in your terminal (I recommend [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)).
+
+- Apple's Command Line Tools (MacOS Only):
 ```zsh
 xcode-select --install
 ```
 
-Paste this command into your terminal:
+Bootstrap and install script:
 ```zsh
 git clone https://github.com/glitchdetected1/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && source bootstrap.sh
 ```
@@ -20,7 +24,7 @@ To Update, `cd` into `~/.dotfiles` and run this:
 source bootstrap.sh
 ```
 
-Adding `~/.extra`:
+Adding `~/.extras`:
 ```zsh
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name/email
@@ -31,11 +35,12 @@ GIT_AUTHOR_EMAIL="random@email.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
-Run `source .extras`
-`~/.extra` is a file with very sensitive information so it can not be in this repository. You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository
-Use `git config --list` to list gitconfig info
+`~/.extra` is a file with very sensitive information so it can not be in this repository. You could also use `~/.extra` to override settings, functions and aliases from the dotfiles.
 
-### My prefered MacOS defaults
+> [!TIP]
+> Use `git config --list` to list gitconfig information
+
+### My MacOS defaults
 
 When setting up a new Mac, you may want to set some useful MacOS defaults:
 

@@ -26,6 +26,21 @@ else
 fi;
 unset doIt;
 
+# Create .extras file for symlink
+cat << 'EOF' > .extras
+# Git credentials
+# Not in the repository, to prevent people from accidentally committing under my name/email
+
+GIT_AUTHOR_NAME="some one"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+
+GIT_AUTHOR_EMAIL="random@email.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+EOF
+
+
 # Create Symlinks
 ln -s ~/.dotfiles/.config/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/git/gitconfig ~/gitconfig
@@ -42,7 +57,5 @@ ln -s ~/.dotfiles/.config/bash/.bash_profile ~/.bash_profile
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# brew bundle --file ~/.dotfiles/Brewfile
 
 # brew list | xargs brew uninstall

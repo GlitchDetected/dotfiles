@@ -4,10 +4,10 @@ import = [
 ]
 
 [font]
-normal = { family = "MesloLGS Nerd Font", style = "Regular" }
-bold = { family = "MesloLGS Nerd Font", style = "Bold" }
-italic = { family = "MesloLGS Nerd Font", style = "Italic" }
-bold_italic = { family = "MesloLGS Nerd Font", style = "Bold Italic" }
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+bold = { family = "FiraCode Nerd Font", style = "Bold" }
+italic = { family = "FiraCode Nerd Font", style = "Italic" }
+bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
 size = 15
 
 [window]

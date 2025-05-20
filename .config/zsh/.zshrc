@@ -2,6 +2,8 @@ PROMPT='%F{cyan}GlitchDetected:%f %F{yellow}📁 %~%f
 %F{green}→%f '
 
 # eval "$(starship init zsh)"
+# starship preset gruvbox-rainbow -o ~/.config/starship.toml
+# uninstall - sh -c 'rm "$(command -v 'starship')"'
 
 neofetch
 
@@ -9,6 +11,8 @@ source ~/.extras
 
 # override vim to open nvim when executed
 alias vim=nvim
+
+alias gitretrack="git rm -r --cached . && git add ."
 
 # git shortcuts
 alias gap="git add -p"
