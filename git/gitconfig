@@ -55,6 +55,3 @@
   root = ~/.ghq
 [http]
 	postBuffer = 157286400
-[user]
-	name = glitchdetected
-	email = braveraptor99@gmail.com

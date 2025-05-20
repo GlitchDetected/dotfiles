@@ -28,9 +28,9 @@ unset doIt;
 
 # Create Symlinks
 ln -s ~/.dotfiles/.config/zsh/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/git/.gitignore ~/.gitignore
-ln -s ~/.dotfiles/git/.gitattributes ~/.gitattributes
+ln -s ~/.dotfiles/git/gitconfig ~/gitconfig
+ln -s ~/.dotfiles/git/gitignore ~/gitignore
+ln -s ~/.dotfiles/git/gitattributes ~/gitattributes
 ln -s ~/.dotfiles/.config ~/.config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.vim/.vimrc ~/.vimrc
