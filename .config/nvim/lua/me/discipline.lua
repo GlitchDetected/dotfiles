@@ -1,6 +1,6 @@
 local M = {}
 
-function M.cowboy()
+function M.explosion()
 	---@type table?
 	local ok = true
 	for _, key in ipairs({ "h", "j", "k", "l", "+", "-" }) do
@@ -12,9 +12,9 @@ function M.cowboy()
 				count = 0
 			end
 			if count >= 10 and vim.bo.buftype ~= "nofile" then
-        			ok = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
-					icon = "🤠",
-					id = "cowboy",
+        			ok = pcall(vim.notify, "Hold on", vim.log.levels.WARN, {
+					icon = "☆",
+					id = "star",
 					keep = function()
 						return count >= 10
 					end,
