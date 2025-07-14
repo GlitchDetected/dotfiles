@@ -26,6 +26,11 @@ bower_components
 fishd.*
 .extras
 
+# .config
+.config/flipperdevices.com
+.config/gtk*
+.config/configstore
+
 # Vim
 Session.vim
 .vim/bundle/

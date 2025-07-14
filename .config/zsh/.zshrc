@@ -1,5 +1,11 @@
-PROMPT='%F{cyan}GlitchDetected:%f %F{yellow}📁 %~%f
-%F{green}→%f '
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+PROMPT='%(j.%F{yellow} %F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f
+❯'
 
 # eval "$(starship init zsh)"
 # starship preset gruvbox-rainbow -o ~/.config/starship.toml
@@ -34,3 +40,13 @@ export DYLD_LIBRARY_PATH="/opt/local/lib/postgresql17:$DYLD_LIBRARY_PATH"
 export LIBPQ_INCLUDE_PATH="/opt/local/include/postgresql17"
 export LIBPQ_LIB_PATH="/opt/local/lib/postgresql17"
 export PKG_CONFIG_PATH="/opt/local/lib/postgresql17/pkgconfig"
+
+export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig"
+export CPPFLAGS="-I/opt/local/include"
+export LDFLAGS="-L/opt/local/lib"
+
+export PNPM_HOME="/Users/glitchdetected/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
