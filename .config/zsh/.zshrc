@@ -15,7 +15,7 @@ neofetch
 
 source ~/.extras
 
-# override vim to open nvim when executed
+# why not use nvim?
 alias vim=nvim
 
 alias gitretrack="git rm -r --cached . && git add ."
@@ -27,6 +27,9 @@ alias gcm="git commit -m"
 alias gp="git push"
 alias gpu="git pull"
 alias gck="git checkout"
+
+export PATH="$HOME/compiled/bin:$PATH"
+export PATH="/opt/local/libexec/gnubin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
