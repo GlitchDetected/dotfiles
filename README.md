@@ -1,7 +1,6 @@
 # GlitchDetected Dotfiles
 
-![Screenshot of nvim](./static/snapshot.png)
-###### _Filed away in my `$HOME`_
+###### Some of my configs are filed away in my`$HOME`_
 
 ## 🚀 Installing
 
@@ -66,16 +65,10 @@ Then import the `init/space.itermcolors` file (`~/init` contains terminal themes
 Send some feedback, suggestions, stuff like that here
 [welcome](https://github.com/glitchdetected1/dotfiles/issues)!
 
-## Author
-
-| <img src="static/glitchdetected.png" alt="Logo" width="50" height="50">
-|---|
-| [GlitchDetected](https://www.youtube.com/watch?v=dQw4w9WgXcQ) |
-
 ## Acknowledgements
 This is where I got the inspiration and some of the code. Huge thanks to these people!
 
 * [mathiasbynens](https://github.com/mathiasbynens) and his [dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [craftzdog](https://github.com/craftzdog) and his [dotfiles and nvim configurations](https://github.com/craftzdog/dotfiles-public)
 * [morhetz](https://github.com/morhetz) for [gruvbox](https://github.com/morhetz/gruvbox)
-* [jdah](https://github.com/jdah) for [zsh scripts](https://github.com/jdah/dotfiles)
+* [jdh](https://github.com/jdah) for [zsh scripts](https://github.com/jdah/dotfiles)
