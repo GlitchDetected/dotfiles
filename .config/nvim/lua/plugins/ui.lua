@@ -170,7 +170,7 @@ return {
   },
   opts = {
   },
-}
+},
 
 	{
 		"folke/zen-mode.nvim",
