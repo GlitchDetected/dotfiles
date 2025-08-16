@@ -12,3 +12,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.conceallevel = 0
 	end,
 })
+
+-- Auto open Neo-tree on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("Neotree show")
+  end,
+})

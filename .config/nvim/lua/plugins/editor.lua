@@ -1,5 +1,5 @@
 return {
-	{
+{
 		enabled = false,
 		"folke/flash.nvim",
 		---@type Flash.Config
@@ -11,9 +11,9 @@ return {
 				incremental = true,
 			},
 		},
-	},
+},
 
-	{
+{
   "karb94/neoscroll.nvim",
   opts = {},
 },
@@ -69,6 +69,52 @@ return {
 			},
 		},
 	},
+
+	{
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  keys = {
+    { "<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neo-tree" },
+  },
+  lazy = false,
+  config = function()
+    require("neo-tree").setup({
+      close_if_last_window = true,
+      popup_border_style = "rounded",
+      enable_git_status = true,
+      enable_diagnostics = true,
+      sort_case_insensitive = true,
+      default_component_configs = {
+        container = { enable_character_fade = true },
+        indent = { padding = 1 },
+        icon = { folder_closed = "", folder_open = "" },
+      },
+      window = {
+        position = "left",
+        width = 30,
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_by_name = {},
+          hide_by_pattern = {},
+          always_show = {
+            ".gitignore",
+            ".env",
+          },
+        },
+        follow_current_file = true,
+        use_libuv_file_watcher = true,
+      },
+    })
+  end,
+},
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -151,6 +197,14 @@ return {
 				desc = "Lists Function names, variables, from Treesitter",
 			},
 			{
+				";c",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.lsp_incoming_calls()
+				end,
+				desc = "Lists LSP incoming calls for word under the cursor",
+			},
+			{
 				"sf",
 				function()
 					local telescope = require("telescope")
@@ -231,6 +285,27 @@ return {
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
 		end,
+	},
+
+	{
+		"kazhala/close-buffers.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>th",
+				function()
+					require("close_buffers").delete({ type = "hidden" })
+				end,
+				"Close Hidden Buffers",
+			},
+			{
+				"<leader>tu",
+				function()
+					require("close_buffers").delete({ type = "nameless" })
+				end,
+				"Close Nameless Buffers",
+			},
+		},
 	},
 
 	{

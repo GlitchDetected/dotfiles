@@ -64,6 +64,7 @@ return {
 		"snacks.nvim",
 		opts = {
 			scroll = { enabled = false },
+			explorer = { enabled = false },
 		},
 		keys = {},
 	},
@@ -87,36 +88,44 @@ return {
 	},
 
 	-- filename
-	{
-		"b0o/incline.nvim",
-		dependencies = { "craftzdog/solarized-osaka.nvim" },
-		event = "BufReadPre",
-		priority = 1200,
-		config = function()
-			local colors = require("solarized-osaka.colors").setup()
-			require("incline").setup({
-				highlight = {
-					groups = {
-						InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-						InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
-					},
-				},
-				window = { margin = { vertical = 0, horizontal = 1 } },
-				hide = {
-					cursorline = true,
-				},
-				render = function(props)
-					local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-					if vim.bo[props.buf].modified then
-						filename = "[+] " .. filename
-					end
+{
+  "b0o/incline.nvim",
+  dependencies = { "ellisonleao/gruvbox.nvim" },
+  event = "BufReadPre",
+  priority = 1200,
+  config = function()
+    require("gruvbox").setup({ contrast = "hard" })
+    vim.cmd("colorscheme gruvbox")
 
-					local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-					return { { icon, guifg = color }, { " " }, { filename } }
-				end,
-			})
-		end,
-	},
+    local colors = {
+      bg = "#282828",
+      fg = "#ebdbb2",
+      magenta = "#b16286",
+      violet = "#d3869b",
+      base03 = "#1d2021",
+      base04 = "#504945",
+    }
+
+    require("incline").setup({
+      highlight = {
+        groups = {
+          InclineNormal = { guibg = colors.magenta, guifg = colors.base04 },
+          InclineNormalNC = { guifg = colors.violet, guibg = colors.base03 },
+        },
+      },
+      window = { margin = { vertical = 0, horizontal = 1 } },
+      hide = { cursorline = true },
+      render = function(props)
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        if vim.bo[props.buf].modified then
+          filename = "[+] " .. filename
+        end
+        local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+        return { { icon, guifg = color }, { " " }, { filename } }
+      end,
+    })
+  end,
+},
 
 	-- statusline
 	{
@@ -136,6 +145,32 @@ return {
 			}
 		end,
 	},
+
+    {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      'lewis6991/gitsigns.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      animation = true,
+      insert_at_start = true,
+    },
+    version = '^1.0.0',
+  },
+
+  {
+  "utilyre/barbecue.nvim",
+  name = "barbecue",
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+  },
+}
 
 	{
 		"folke/zen-mode.nvim",
