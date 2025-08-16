@@ -15,6 +15,13 @@ neofetch
 
 source ~/.extras
 
+if [ -z "$TMUX" ]; then
+  tmux new-session -d -s main
+  tmux send-keys -t main 'nvim' C-m
+  tmux split-window -v -l 5 -t main
+  exec tmux attach -t main
+fi
+
 # why not use nvim?
 alias vim=nvim
 
