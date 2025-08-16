@@ -5,6 +5,8 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
 
+vim.opt.number = true      -- show absolute line numbers
+vim.opt.relativenumber = false  -- turn off relative numbers
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true

@@ -127,6 +127,28 @@ return {
   end,
 },
 
+{
+  "aserowy/tmux.nvim",
+  lazy = false,
+  config = function()
+    require("tmux").setup({
+      navigation = {
+        cycle_navigation = true,          -- wrap around when reaching the last pane
+        enable_default_keybindings = true,-- enable default <C-h/j/k/l> keybindings
+      },
+      copy_sync = {
+        enable = true,
+        redirect_to_clipboard = true,     -- copy to system clipboard automatically
+        sync_clipboard = true,            -- sync clipboard between tmux and vim
+        sync_registers = true,            -- sync with vim registers too
+      },
+      resize = {
+        enable_default_keybindings = true, -- use <A-h/j/k/l> for resizing
+      },
+    })
+  end,
+},
+
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
