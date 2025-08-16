@@ -16,10 +16,14 @@ neofetch
 source ~/.extras
 
 if [ -z "$TMUX" ]; then
+ if ! tmux has-session -t main 2>/dev/null; then
   tmux new-session -d -s main
-  tmux send-keys -t main 'nvim' C-m
   tmux split-window -v -l 5 -t main
-  exec tmux attach -t main
+  tmux send-keys -t main.0 'nvim' C-m
+fi
+
+  tmux attach-session -t main \; wait-for -S tmux-exit
+  tmux kill-session -t main 2>/dev/null
 fi
 
 # why not use nvim?
