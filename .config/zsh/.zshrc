@@ -15,6 +15,11 @@ neofetch
 
 source ~/.extras
 
+# tmux package manager
+if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+    "$HOME/.tmux/plugins/tpm/bin/install_plugins"
+fi
+
 if [ -z "$TMUX" ]; then
  if ! tmux has-session -t main 2>/dev/null; then
   tmux new-session -d -s main
