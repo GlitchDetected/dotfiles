@@ -1,3 +1,5 @@
+fastfetch
+
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
@@ -10,8 +12,6 @@ PROMPT='%(j.%F{yellow} %F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f
 # eval "$(starship init zsh)"
 # starship preset gruvbox-rainbow -o ~/.config/starship.toml
 # uninstall - sh -c 'rm "$(command -v 'starship')"'
-
-neofetch
 
 source ~/.extras
 
@@ -28,7 +28,7 @@ if [ -z "$TMUX" ]; then
 fi
 
   tmux attach-session -t main \; wait-for -S tmux-exit
-  tmux kill-session -t main 2>/dev/null
+  tmux kill-server 2>/dev/null
 fi
 
 # why not use nvim?
