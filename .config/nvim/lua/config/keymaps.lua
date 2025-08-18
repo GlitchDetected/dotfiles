@@ -19,6 +19,7 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
+keymap.set("n", "<leader>ya", ":%y+<CR>", { noremap = true, silent = true, desc = "Yank all file contents to clipboard" })
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")

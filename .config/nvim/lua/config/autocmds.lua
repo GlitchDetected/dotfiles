@@ -18,3 +18,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
     require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
   end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.opt.mouse = "a"
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = {"init.lua", "lua/**/*.lua"},
+  callback = function()
+    -- Clear loaded Lua modules in 'config' namespace
+    for name,_ in pairs(package.loaded) do
+      if name:match("^config") then
+        package.loaded[name] = nil
+      end
+    end
+    require("config")
+    vim.opt.mouse = "a"
+    print("Reloaded config and ensured mouse is enabled!")
+  end,
+})
