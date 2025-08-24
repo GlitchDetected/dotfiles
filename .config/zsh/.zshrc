@@ -9,27 +9,24 @@ setopt PROMPT_SUBST
 PROMPT='%(j.%F{yellow} %F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f
 ❯ '
 
-# eval "$(starship init zsh)"
-# starship preset gruvbox-rainbow -o ~/.config/starship.toml
-# uninstall - sh -c 'rm "$(command -v 'starship')"'
-
-source ~/.extras
-
 # tmux package manager
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
     "$HOME/.tmux/plugins/tpm/bin/install_plugins"
 fi
 
 if [ -z "$TMUX" ]; then
- if ! tmux has-session -t main 2>/dev/null; then
-  tmux new-session -d -s main
-  tmux split-window -v -l 5 -t main
-  tmux send-keys -t main.0 'nvim' C-m
+  if ! tmux has-session -t main 2>/dev/null; then
+    tmux new-session -d -s main
+    tmux split-window -v -t main
+  fi
+  exec tmux attach-session -t main
 fi
 
-  tmux attach-session -t main \; wait-for -S tmux-exit
-  tmux kill-server 2>/dev/null
-fi
+# eval "$(starship init zsh)"
+# starship preset gruvbox-rainbow -o ~/.config/starship.toml
+# uninstall - sh -c 'rm "$(command -v 'starship')"'
+
+source ~/.extras
 
 # why not use nvim?
 alias vim=nvim

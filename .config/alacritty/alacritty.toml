@@ -13,5 +13,3 @@ size = 15
 [window]
 dimensions = { columns = 125, lines = 80 }
 opacity = 0.9
-
-# command+n to open a new alacritty instance

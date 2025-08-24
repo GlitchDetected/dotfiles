@@ -16,6 +16,46 @@ return {
 		end,
 	},
 
+{
+  'stevearc/conform.nvim',
+  opts = {
+    formatters_by_ft = {
+      c      = { "clang-format" },
+      cpp    = { "clang-format" },
+      javascript = { "prettier" },
+      lua    = { "stylua" },
+      rust   = { "rustfmt" },
+      python = { "black" },
+    },
+    formatters = {
+      clang_format = {
+        command = "clang-format",
+        args = { "--style=file" },
+      },
+      prettier = {
+        command = "prettier",
+        args = { "--stdin-filepath", "$FILENAME" },
+      },
+      stylua = {
+        command = "stylua",
+        args = { "-" },
+      },
+      rustfmt = {
+        command = "rustfmt",
+        args = {},
+      },
+      black = {
+        command = "black",
+        args = { "-" },
+      },
+    },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_fallback = true,
+    },
+  },
+},
+
 	-- lsp servers
 	{
 		"neovim/nvim-lspconfig",
