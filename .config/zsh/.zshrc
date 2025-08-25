@@ -15,11 +15,11 @@ if [ -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 
 if [ -z "$TMUX" ]; then
-  if ! tmux has-session -t main 2>/dev/null; then
-    tmux new-session -d -s main
-    tmux split-window -v -t main
-  fi
-  exec tmux attach-session -t main
+  session="term-$(date +%s)"
+  tmux new-session -d -s "$session" -c "$PWD"
+  tmux split-window -v -t "$session" -c "$PWD"
+  tmux send-keys -t "$session:0.0" "nvim" C-m
+  exec tmux attach -t "$session"
 fi
 
 # eval "$(starship init zsh)"
