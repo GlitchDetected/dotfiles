@@ -14,7 +14,7 @@ if [ -d "$HOME/.tmux/plugins/tpm" ]; then
     "$HOME/.tmux/plugins/tpm/bin/install_plugins"
 fi
 
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ -n "$ALACRITTY_SOCKET" ]; then
   session="term-$(date +%s)"
   tmux new-session -d -s "$session" -c "$PWD"
   tmux split-window -v -t "$session" -c "$PWD"
