@@ -11,7 +11,7 @@ PROMPT='%(j.%F{yellow} %F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f
 
 # tmux package manager
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
-    "$HOME/.tmux/plugins/tpm/bin/install_plugins"
+    "$HOME/.tmux/plugins/tpm/bin/install_plugins"  &>/dev/null
 fi
 
 if [ -z "$TMUX" ] && [ -n "$ALACRITTY_SOCKET" ]; then
